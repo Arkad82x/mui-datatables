@@ -93,7 +93,7 @@ const useStyles = makeStyles(
   { name: 'MUIDataTableBodyCell' },
 );
 
-function TableBodyCell(props) {
+const TableBodyCell = React.memo((props) => {
   const classes = useStyles();
   const {
     children,
@@ -179,6 +179,9 @@ function TableBodyCell(props) {
     innerCells = cells;
   }
 
+
+  console.log("render tableCell");
+
   return (
     <TableCell
       {...methods}
@@ -206,6 +209,6 @@ function TableBodyCell(props) {
       {innerCells}
     </TableCell>
   );
-}
+});
 
 export default TableBodyCell;
