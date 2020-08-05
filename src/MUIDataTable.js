@@ -266,6 +266,7 @@ class MUIDataTable extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log("MUIDatatableRender")
     this.tableId = (Math.random() + '').replace(/\./, '');
     this.tableRef = React.createRef();
     this.tableContent = React.createRef();
