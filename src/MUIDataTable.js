@@ -19,8 +19,6 @@ import DefaultTableToolbarSelect from './components/TableToolbarSelect';
 import MuiTooltip from '@material-ui/core/Tooltip';
 import getTextLabels from './textLabels';
 import { buildMap, getCollatorComparator, sortCompare, getPageValue, warnDeprecated, warnInfo } from './utils';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
 
 const defaultTableStyles = theme => ({
   root: {},
@@ -266,7 +264,7 @@ class MUIDataTable extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log("MUIDatatableRender")
+    console.log('MUIDatatableRender');
     this.tableId = (Math.random() + '').replace(/\./, '');
     this.tableRef = React.createRef();
     this.tableContent = React.createRef();
@@ -1870,11 +1868,6 @@ class MUIDataTable extends React.Component {
     const tableClassNames = clsx(classes.tableRoot, tableProps.className);
     delete tableProps.className; // remove className from props to avoid the className being applied twice
 
-    const dndProps = {};
-    if (typeof window !== 'undefined') {
-      dndProps.context = window;
-    }
-
     return (
       <Paper elevation={this.options.elevation} ref={this.tableContent} className={paperClasses}>
         {selectedRows.data.length > 0 && this.options.selectToolbarPlacement !== STP.NONE && (
@@ -1942,7 +1935,6 @@ class MUIDataTable extends React.Component {
               tableId={this.tableId}
             />
           )}
-          <DndProvider backend={HTML5Backend} {...dndProps}>
             <MuiTable
               ref={el => (this.tableRef = el)}
               tabIndex={'0'}
@@ -2001,7 +1993,6 @@ class MUIDataTable extends React.Component {
                   })
                 : null}
             </MuiTable>
-          </DndProvider>
         </div>
         <TableFooterComponent
           options={this.options}
