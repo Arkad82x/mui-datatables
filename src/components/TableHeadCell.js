@@ -167,7 +167,7 @@ const TableHeadCell = ({
               <div
                 className={clsx({
                   [classes.data]: true,
-                  [classes.sortActive]: sortActive
+                  [classes.sortActive]: sortActive,
                 })}>
                 {children}
               </div>
